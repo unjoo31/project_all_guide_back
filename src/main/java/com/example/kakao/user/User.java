@@ -46,7 +46,5 @@ public class User{
         this.region = region;
         this.age = age;
         this.phoneNumber = phoneNumber;
-    }
-
-    
+    } 
 }

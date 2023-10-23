@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import com.example.kakao.Keyword.Keyword;
 import com.example.kakao.allGuide.AllGuide;
 import com.example.kakao.keywordThird.KeywordThird;
 import com.example.kakao.whereGuide.WhereGuide;
@@ -21,25 +22,21 @@ public class KeywordSecond {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false)
-    private String keywordSecondName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Keyword keyword;
     @ManyToOne(fetch = FetchType.LAZY)
     private AllGuide allGuide;
     @ManyToOne(fetch = FetchType.LAZY)
     private WhoGuide whoGuide;
     @ManyToOne(fetch = FetchType.LAZY)
     private WhereGuide whereGuide;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private KeywordThird keywordThird;
 
     @Builder
-    public KeywordSecond(int id, String keywordSecondName, AllGuide allGuide, WhoGuide whoGuide, WhereGuide whereGuide,
-            KeywordThird keywordThird) {
+    public KeywordSecond(int id, Keyword keyword, AllGuide allGuide, WhoGuide whoGuide, WhereGuide whereGuide) {
         this.id = id;
-        this.keywordSecondName = keywordSecondName;
+        this.keyword = keyword;
         this.allGuide = allGuide;
         this.whoGuide = whoGuide;
         this.whereGuide = whereGuide;
-        this.keywordThird = keywordThird;
-    }    
+    }     
 }

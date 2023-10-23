@@ -18,7 +18,7 @@ import com.example.kakao.whoGuide.WhoGuide;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name="boomark_tb")
+@Table(name="bookmark_tb")
 public class Bookmark {
     
     @Id

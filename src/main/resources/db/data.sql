@@ -1,23 +1,56 @@
-INSERT INTO user_tb (`id`,`email`,`password`,`username`) VALUES ('1', 'ssar@nate.com', '1234', 'ssar');
+-- user_tb 테이블
+INSERT INTO user_tb (pic_url, username, password, email, age, phone_number)
+VALUES ('profile_image_1.png', 'unjoo', '1234', 'unjoo31@gmail.com', '2010-08-10', '010-1234-5678');
 
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('1', 'book1.png', '트렌드코리아 2024', '김난도','오롯이 인간만의 역량을 최대한 끌어올리는 것. 이를 위해 우리는 무엇을 알아야 하고, 무엇을 준비해야 할까? 2배속 사회에서 균형점을 찾기 위한 여백은 무엇인가? 올해의 〈트렌드 코리아〉는 유독 천천히 읽기를 권한다.');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('2', 'book2.png', '퓨처셀프', '벤저민 하디','‘미래의 나’를 적용하는 과학 분야 세계 최고의 전문가,
-자기계발 분야 파워블로거이자 베스트셀러 작가의 신작
-세계적인 동기부여 전문가, 토니 로빈스 강력 추천!
+-- region_tb 테이블
+INSERT INTO region_tb (region_name) VALUES ('부산'), ('서울'), ('대구'), ('울산'), ('전주'), ('수원');
 
-현재와 미래를 더 가치 있게 바꾸고 싶다면,
-‘미래의 나’와 ');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('3', 'book3.png', '시대예보:핵개인의 시대', '송길영','마인드 마이너 송길영이 예보하는 미래 시대,
-앞으로 세상은 어떻게 변화할 것인가?
+-- category_tb 테이블
+INSERT INTO category_tb (category_name) VALUES ('건강'), ('여행'), ('반려동물'), ('공부'), ('서류'), ('일상'), ('요리'), ('음식점'), ('카페');
 
-한 철의 기상을 알려주는 일기예보가 아닌,
-삶을 대비하기 위한 더 큰 호흡의 ‘시');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('4', 'book4.png', '설자은, 금성으로 돌아오다', '정세랑','정세랑이 선보이는 격 역사 미스터리 모험담!');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('5', 'book5.png', '책으로 가는 문', '미야자키 하야오','이 안에 당신의 첫 책도 있나요?');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('6', 'book6.png', '로마 이야기', '줌파 라히리','이름, 국적, 나이, 성별…… 주어진 정체성에서 벗어날 수 있을까?');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('7', 'book7.png', '문과 남자의 과학 공부', '유시민','과학 공부로 길어 올린 생명과 우주에 관한 진실, 인간과 사회를 이해하는 방법
-”내 삶을 어떤 의미로 채울 것인가?”');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('8', 'book8.png', '아주 희미한 빛으로도', '최은영','더 진실하기를, 더 치열하기를, 더 용기 있기를
-[내게 무해한 사람] 이후 5년, 고요하게 휘몰아치는 최은영의 세계');
-INSERT INTO book_tb (`id`,`pic_url`,`title`,`writer`, `content`) VALUES ('9', 'book9.png', '역행자', '자청','한층 더 강력한 치트기, 독해진 팩트 폭격!
-50주 연속 베스트셀러·40만 독자의 삶을 바꾼 [역행자]가 확장판으로 돌아왔다.');
+-- menu_tb 테이블
+INSERT INTO menu_tb (menu_name, menu_price) VALUES 
+('애플시나몬 케이크', '6,000원'), ('초코 브라우니', '6,000원'), ('황치즈 브라우니', '6,000원'),
+('에스프레소', '4,500원'), ('아메리카노', '4,500원'), ('카페 라떼', '5,500원'), ('바닐라 라떼', '5,500원'),
+('흑임자 라떼', '6,500원'), ('말차 라떼', '5,500원');
+
+-- keyword_tb 테이블
+INSERT INTO keyword_tb (keyword_name) VALUES 
+('그림'), ('반려동물'), ('건강검진'), ('병원'), ('날씨'), ('겨울여행'), ('이력서 작성방법'), ('화분'), ('크리스마스'),
+('카레'), ('조명'), ('이사'), ('자동차'), ('넷플릭스'), ('이직'), ('종류'), ('전구'), ('인테리어'),
+('세척'), ('교체하기'), ('분리하기'), ('변경하기'), ('강아지'), ('고양이'), ('햄스터'), ('키우기'), ('산책'), 
+('먹이'), ('애견카페'), ('새'), ('용품'), ('목욕'), ('방법');
+
+-- where_store_tb 테이블
+INSERT INTO where_store_tb (category_id, region_id, store_name, store_address) 
+VALUES (9, 1, '턴어라운드', '부산 부산진구 전포대로200번길 21 1층 턴어라운드');
+
+-- where_guide_tb 테이블
+INSERT INTO where_guide_tb (category_id, region_id, user_id, order_price)
+VALUES (9, 1, 1, 22000);
+
+
+-- hash_menu_tb 테이블
+INSERT INTO hash_menu_tb (menu_id, where_guide_id, where_store_id) VALUES 
+(1, 1, 1), (3, 1, 1), (5, 1, 1), (6, 1, 1);
+
+-- pay_tb 테이블
+INSERT INTO pay_tb (user_id, where_guide_id) VALUES (1, 1);
+
+-- all_guide_tb 테이블
+INSERT INTO all_guide_tb (pic_url, title, browser_name) 
+VALUES ('all_guide_1.png', '스탠딩 조병 전구 변경하기', 'Google');
+
+-- who_guide_tb 테이블
+INSERT INTO who_guide_tb (category_id, pic_url_first, pic_url_second, pic_url_third, title, content, user_id) 
+VALUES (3, 'who_guide_1.png', 'who_guide_2.png', 'who_guide_3.png', '반려동물 강아지 산책 초보 훈련기', '강아지 첫 산책 시기는 어린 강아지를 데려온 반려인이라면 누구나 하는 고민입니다.
+아주 어릴 때는 집에서 장난...책 시기에 관한 고민을 단번에 해결해 줄 글을 준비했습니다.', 1);
+
+-- bookmark_tb 테이블
+INSERT INTO bookmark_tb (user_id, all_guide_id, who_guide_id, where_guide_id) VALUES (1, 1, 1, 1);
+
+-- keyword_first_tb 테이블
+INSERT INTO keyword_first_tb (keyword_id, all_guide_id, who_guide_id, where_guide_id) VALUES (11, 1, null, null), (23, null, 1, null);
+
+-- keyword_second_tb 테이블
+INSERT INTO keyword_second_tb (keyword_id, all_guide_id, who_guide_id, where_guide_id) VALUES (17, 1, null, null), (22, 1, null, null), (27, null, 1, null);

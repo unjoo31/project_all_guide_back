@@ -9,6 +9,7 @@ import java.sql.Date;
 
 import javax.persistence.*;
 
+import com.example.kakao.Keyword.Keyword;
 import com.example.kakao.allGuide.AllGuide;
 import com.example.kakao.keywordSecond.KeywordSecond;
 import com.example.kakao.region.Region;
@@ -24,25 +25,21 @@ public class KeywordFirst {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false)
-    private String keywordFirstName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Keyword keyword;
     @ManyToOne(fetch = FetchType.LAZY)
     private AllGuide allGuide;
     @ManyToOne(fetch = FetchType.LAZY)
     private WhoGuide whoGuide;
     @ManyToOne(fetch = FetchType.LAZY)
     private WhereGuide whereGuide;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private KeywordSecond keywordSecond;
 
     @Builder
-    public KeywordFirst(int id, String keywordFirstName, AllGuide allGuide, WhoGuide whoGuide, WhereGuide whereGuide,
-            KeywordSecond keywordSecond) {
+    public KeywordFirst(int id, Keyword keyword, AllGuide allGuide, WhoGuide whoGuide, WhereGuide whereGuide) {
         this.id = id;
-        this.keywordFirstName = keywordFirstName;
+        this.keyword = keyword;
         this.allGuide = allGuide;
         this.whoGuide = whoGuide;
         this.whereGuide = whereGuide;
-        this.keywordSecond = keywordSecond;
-    }   
+    }
 }

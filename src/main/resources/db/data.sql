@@ -1,6 +1,9 @@
 -- user_tb 테이블
 INSERT INTO user_tb (pic_url, username, password, email, age, phone_number)
-VALUES ('profile_image_1.png', 'unjoo', '1234', 'unjoo31@gmail.com', '2010-08-10', '010-1234-5678');
+VALUES ('profile_image_1.png', 'unjoo', '1234', 'unjoo@gmail.com', '2010-08-10', '010-1234-5678'),
+('profile_image_2.png', 'ssar', '1234', 'ssar@gmail.com', '2010-08-10', '010-1234-5678'),
+('profile_image_3.png', 'cos', '1234', 'cos@gmail.com', '2010-08-10', '010-1234-5678'),
+('profile_image_4.png', 'love', '1234', 'love@gmail.com', '2010-08-10', '010-1234-5678');
 
 -- region_tb 테이블
 INSERT INTO region_tb (region_name) VALUES ('부산'), ('서울'), ('대구'), ('울산'), ('전주'), ('수원');
@@ -22,8 +25,14 @@ INSERT INTO keyword_tb (keyword_name) VALUES
 ('먹이'), ('애견카페'), ('새'), ('용품'), ('목욕'), ('방법');
 
 -- where_store_tb 테이블
-INSERT INTO where_store_tb (category_id, region_id, store_name, store_address) 
-VALUES (9, 1, '턴어라운드', '부산 부산진구 전포대로200번길 21 1층 턴어라운드');
+INSERT INTO where_store_tb (category_id, region_id, store_name, store_address, pic_url) VALUES 
+(9, 1, '턴어라운드', '부산 부산진구 전포대로200번길 21 1층 턴어라운드', 'where_guide_1.png'),
+(9, 1, '유어타입전포', '부산 부산진구 전포대로200번길 21 1층 턴어라운드', 'where_guide_3.png'),
+(9, 1, '카페알프', '부산 부산진구 전포대로200번길 21 1층 턴어라운드', 'where_guide_4.png'),
+(9, 1, '희소', '부산 부산진구 전포대로200번길 21 1층 턴어라운드', 'where_guide_5.png'),
+(8, 1, '맥도날드', '부산 부산진구 전포대로200번길 21 1층 턴어라운드', 'where_guide_2.png'),
+(8, 1, '멘즈키', '부산 부산진구 전포대로200번길 21 1층 턴어라운드', 'where_guide_6.png'),
+(8, 1, '무소유', '부산 부산진구 전포대로200번길 21 1층 턴어라운드', 'where_guide_7.png');
 
 -- where_guide_tb 테이블
 INSERT INTO where_guide_tb (category_id, region_id, user_id, order_price)
@@ -39,12 +48,23 @@ INSERT INTO pay_tb (user_id, where_guide_id) VALUES (1, 1);
 
 -- all_guide_tb 테이블
 INSERT INTO all_guide_tb (pic_url, title, browser_name) 
-VALUES ('all_guide_1.png', '스탠딩 조병 전구 변경하기', 'Google');
+VALUES ('all_guide_1.png', '스탠딩 조병 전구 변경하기', 'Google'),
+('all_guide_2.png', '스탠딩 조병 전구 변경하기', 'Google'),
+('all_guide_3.png', '스탠딩 조병 전구 변경하기', 'Google'),
+('all_guide_4.png', '스탠딩 조병 전구 변경하기', 'Google'),
+('all_guide_5.png', '스탠딩 조병 전구 변경하기', 'Google'),
+('all_guide_6.png', '스탠딩 조병 전구 변경하기', 'Google');
 
 -- who_guide_tb 테이블
 INSERT INTO who_guide_tb (category_id, pic_url_first, pic_url_second, pic_url_third, title, content, user_id) 
 VALUES (3, 'who_guide_1.png', 'who_guide_2.png', 'who_guide_3.png', '반려동물 강아지 산책 초보 훈련기', '강아지 첫 산책 시기는 어린 강아지를 데려온 반려인이라면 누구나 하는 고민입니다.
-아주 어릴 때는 집에서 장난...책 시기에 관한 고민을 단번에 해결해 줄 글을 준비했습니다.', 1);
+아주 어릴 때는 집에서 장난...책 시기에 관한 고민을 단번에 해결해 줄 글을 준비했습니다.', 1),
+(3, 'who_guide_4.png', 'who_guide_5.png', 'who_guide_6.png', '반려동물 강아지 산책 초보 훈련기', '강아지 첫 산책 시기는 어린 강아지를 데려온 반려인이라면 누구나 하는 고민입니다.
+아주 어릴 때는 집에서 장난...책 시기에 관한 고민을 단번에 해결해 줄 글을 준비했습니다.', 2),
+(3, 'who_guide_7.png', 'who_guide_9.png', null, '반려동물 강아지 산책 초보 훈련기', '강아지 첫 산책 시기는 어린 강아지를 데려온 반려인이라면 누구나 하는 고민입니다.
+아주 어릴 때는 집에서 장난...책 시기에 관한 고민을 단번에 해결해 줄 글을 준비했습니다.', 3),
+(3, 'who_guide_9.png', 'who_guide_10.png', null, '반려동물 강아지 산책 초보 훈련기', '강아지 첫 산책 시기는 어린 강아지를 데려온 반려인이라면 누구나 하는 고민입니다.
+아주 어릴 때는 집에서 장난...책 시기에 관한 고민을 단번에 해결해 줄 글을 준비했습니다.', 4);
 
 -- bookmark_tb 테이블
 INSERT INTO bookmark_tb (user_id, all_guide_id, who_guide_id, where_guide_id) VALUES (1, 1, 1, 1);

@@ -35,6 +35,8 @@ public class WhereStore {
     private String storeName;
     @Column(nullable = false)
     private String storeAddress;
+    @Column(nullable = false)
+    private String picUrl;
     @JsonIgnore
     @OneToMany(mappedBy = "whereStore", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<HashMenu> hashMenuList = new ArrayList<>();
@@ -43,13 +45,14 @@ public class WhereStore {
     private WhereGuide whereGuide;
 
     @Builder
-    public WhereStore(int id, Category category, Region region, String storeName, String storeAddress,
+    public WhereStore(int id, Category category, Region region, String storeName, String storeAddress, String picUrl,
             List<HashMenu> hashMenuList, WhereGuide whereGuide) {
         this.id = id;
         this.category = category;
         this.region = region;
         this.storeName = storeName;
         this.storeAddress = storeAddress;
+        this.picUrl = picUrl;
         this.hashMenuList = hashMenuList;
         this.whereGuide = whereGuide;
     }

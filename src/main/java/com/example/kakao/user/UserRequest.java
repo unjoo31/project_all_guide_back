@@ -21,15 +21,11 @@ public class UserRequest {
         @Size(min = 8, max = 20, message = "8에서 20자 이내여야 합니다.")
         private String password;
 
-        
-        @NotEmpty()
-        private String username;
 
         public User toEntity() {
             return User.builder()
                     .email(email)
                     .password(password)
-                    .username(username)
                     .build();
         }
     }

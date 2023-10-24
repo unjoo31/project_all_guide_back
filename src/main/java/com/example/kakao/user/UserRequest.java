@@ -18,7 +18,7 @@ public class UserRequest {
         private String email;
 
         @NotEmpty()
-        @Size(min = 8, max = 20, message = "8에서 20자 이내여야 합니다.")
+        @Size(min = 4, max = 20, message = "4에서 20자 이내여야 합니다.")
         private String password;
 
 

@@ -31,6 +31,9 @@ spring:
   output:
     ansi:
       enabled: always
+  jackson:
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
 
 logging:
   level:

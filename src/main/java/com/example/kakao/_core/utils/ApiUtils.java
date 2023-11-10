@@ -1,25 +1,24 @@
 package com.example.kakao._core.utils;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 @AllArgsConstructor
 @Data
-public class ApiUtil {
+public class ApiUtils {
 
     public static <T> ApiResult<T> success(T response) {
         return new ApiResult<>(true, response, null);
     }
 
-    public static ApiResult<?> error(String message) {
-        return new ApiResult<>(false, null, new ApiError(message));
+    public static ApiResult<?> error(String message, HttpStatus status) {
+        return new ApiResult<>(false, null, new ApiError(message, status.value()));
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
+    @Getter @Setter @AllArgsConstructor
     public static class ApiResult<T> {
         private final boolean success;
         private final T response;
@@ -29,5 +28,6 @@ public class ApiUtil {
     @Getter @Setter @AllArgsConstructor
     public static class ApiError {
         private final String message;
+        private final int status;
     }
 }

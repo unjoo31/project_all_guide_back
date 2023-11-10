@@ -13,16 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.kakao._core.errors.exception.Exception401;
-import com.example.kakao._core.utils.ApiUtils;
 import com.example.kakao._core.utils.JwtTokenUtils;
-import com.example.kakao._core.utils.ApiUtils.ApiResult;
 import com.example.kakao.user.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
